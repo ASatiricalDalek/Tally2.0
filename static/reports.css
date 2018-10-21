@@ -1,0 +1,132 @@
+/*TODO: Optimize this so it extends the prev file*/
+body
+{
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+label
+{
+    font-size: 18px;
+}
+
+#tallyType
+{
+    font-size: 18px;
+    width: 30%;
+}
+
+.dtime
+{
+    font-size: 18px;
+}
+
+#reportbtn
+{
+    transition: ease .3s;
+    border: none;
+    background-color: #026ba6;
+    color: white;
+    padding: 10px;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#reportbtn:hover
+{
+    background-color: #ef4c23;
+    cursor: pointer;
+}
+
+#reports
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.head
+{
+    height: 40px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #026ba6;
+    color: white;
+}
+
+td
+{
+    padding: 10px;
+}
+
+/* Provides striping on the table */
+tr:nth-child(even)
+{
+    background-color: #f2f2f2;
+}
+
+#backbtn
+{
+    padding: 25px;
+}
+
+#back
+{
+    transition: ease .3s;
+    background-color: #026ba6;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+
+#back:hover
+{
+    transition: ease .3s;
+    background-color: #ef4c23;
+}
+
+caption
+{
+    font-size: 24px;
+}
+
+/*This doesn't seem to work*/
+.export
+{
+    transition: ease .3s;
+    background-color: #026ba6;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.export:hover
+{
+    transition: ease .3s;
+    background-color: #ef4c23;
+}
+
+/*Make controls bigger/take up less horz space on mobile*/
+@media only screen and (max-width: 999px)
+{
+    input
+    {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
+    
+    .dtime
+    {
+        height: 50px;
+    }
+    
+    #tallyType
+    {
+        height: 50px;
+        width: 100%;
+    }
+}
+

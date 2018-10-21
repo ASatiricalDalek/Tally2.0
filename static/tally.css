@@ -1,0 +1,130 @@
+/*Layout Section*/
+@media only screen and (min-width: 1000px)
+{
+    #container
+    {
+    display: grid;
+    grid-template-columns: 15% 15% 40% 15% 15%;
+    grid-template-areas: 
+        "logo . post . ."
+        ". . title . ."
+        ". . select . ."
+        ". . report . ."
+        ". . popout . .";
+    }   
+}
+
+@media only screen and (max-width: 999px)
+{
+    #container
+    {
+        /* Less horizontal padding on mobile */
+        grid-template-columns: 5% 5% 80% 5% 5%;
+    }
+    
+    /* Larger buttons on mobile */
+    .cidlbtn
+    {
+        height: 60px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #questionType
+    {
+        height: 75px;
+    }
+    
+    #reportsButton
+    {
+        text-align: center;
+    }
+}
+
+#logo
+{
+    grid-area: logo;
+}
+
+
+#title
+{
+    grid-area: title;
+    text-align: center;
+}
+
+#form
+{
+    grid-area: select;
+}
+
+#reportsButton
+{
+    grid-area: report;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#popoutButton
+{
+    grid-area: popout;
+}
+
+/*Pretty Section*/
+
+body
+{
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+#title
+{
+    font-style: italic;
+}
+
+
+.cidlbtn
+{
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    transition: ease .3s;
+    background-color: #026ba6;
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#questionType
+{
+    font-size: 28px;
+    width: 100%;
+}
+
+.cidlbtn:hover
+{
+    transition: ease .3s;
+    cursor: pointer;
+    background-color: #ef4c23;
+}
+
+.mark
+{
+    padding-top: 9px;
+    padding-bottom: 1px;
+}
+
+#postMsg
+{
+    transition: ease .3s;
+    grid-area: post;
+    text-align: center;
+    background-color: palegreen;
+    color: darkgreen;
+    font-size: 18px;
+}
