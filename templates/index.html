@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tally 2.0</title>
+        <link rel="stylesheet" type="text/css" href="../static/tally.css">
+    </head>
+    <body>
+        <div id="container">
+            <img id="logo" src="../static/images/logo.png">
+            <h1 id="title">Tally2.0</h1>
+            <form method="POST" id="form">
+                <select name="questionType" id="questionType">
+                    <option value="999">Please Select...</option>
+                    <option value="Reference Question">Reference Questions</option>
+                    <option value="Guest Pass">Guest Passes</option>
+                    <option value="Technology Question">Technology Questions</option>
+                    <option value="Reader's Advisory">Reader's Advisory</option>
+                    <option value="Directional Question">Directional Questions</option>
+                    <option value="Interloan">Interloans</option>
+                    <option value="Referral">Referrals</option>
+                    <option value="Game Computer">Game Computers</option>
+                    <option value="Other">Other</option>
+                </select>
+                <br>
+                <input type="submit" class="cidlbtn" id="sub" value="Tally Interaction">
+            </form>
+            <a id="reportsButton" class="cidlbtn" href="/reports">Reports</a>
+            <button id="popoutButton" class="cidlbtn" onclick="window.open('/','tally','height=650,width=400');">Open in Popout Window</button>
+            {% if postMsg != None %}
+                <p id="postMsg">{{postMsg}}</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

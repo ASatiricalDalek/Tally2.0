@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tally2.0 Reports</title>
+        <link rel="stylesheet" type="text/css" href="../static/reports.css">
+        <script src="../static/js/jquery-3.3.1.min.js"></script>
+        <script src="../static/js/FileSaver.js-master/FileSaver.min.js"></script>
+        <script src="../static/js/TableExport-master/src/v2/v2.1/tableexport-2.1.js"></script>
+    </head>
+    <body>
+        <form method="post">
+            <label>Type of Interaction:</label>
+            <select name="tallyType" id="tallyType">
+                <option value="999">Please Select...</option>
+                <option value="All Interactions">All Interactions</option>
+                <option value="Reference Question">Reference Questions</option>
+                <option value="Guest Pass">Guest Passes</option>
+                <option value="Technology Question">Technology Questions</option>
+                <option value="Reader's Advisory">Reader's Advisory</option>
+                <option value="Directional Question">Directional Questions</option>
+                <option value="Interloan">Interloans</option>
+                <option value="Referral">Referrals</option>
+                <option value="Game Computer">Game Computers</option>
+                <option value="Other">Other</option>
+            </select>
+            <!-- {{ niceDay }} indicates a Flask variable which denotes the current date -->
+            <!-- The time is then set to 9AM for the first box and 11:59 for the second -->
+            <input class="dtime" type="datetime-local" name="start" value="{{ niceDay }}T09:00">
+            <input class="dtime" type="datetime-local" name="end" value="{{ niceDay }}T23:59">
+            <label>Breakdown by Hour/Type</label>
+            <input type="checkbox" name="chkadv">
+            <input type="submit" id="reportbtn" value="Run Report">
+        </form>
+        <table border = 1 id="reports">
+            <!-- The table we show depends on what type of query was ran -->
+             {% if advanced ==  True %}
+            <thead>
+                <caption>{{ qtype_verbose }}<br></caption>
+                <td class="head">Interaction Type</td>
+                <td class="head">Time</td>
+            </thead>
+            <!-- Populate the table from Flask (__init__.py) -->
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question[0] }}</td>
+                    <td>{{ question[1] }}</td>
+                </tr>
+            {% endfor %} 
+            
+            {% elif advanced == False %}
+            <thead>
+                <caption>{{ qtype_verbose }}<br></caption>
+                <td class="head">Times Asked</td>
+                <td class="head">Time</td>
+            </thead>
+            <!-- Populate the table from Flask (__init__.py) -->
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question[0] }}</td>
+                    <td>{{ start }} to {{ end }}</td>
+                </tr>
+            {% endfor %} 
+            {% endif %}
+            <!-- Table header is grabbed from Flask -->
+            
+       </table>
+        <div id="backbtn">
+            <a href = "/" id="back">Back to Tally2.0</a>
+        </div>
+        <script>
+            // https://www.jqueryscript.net/table/Exporting-Html-Tables-To-CSV-XLS-XLSX-Text-TableExport.html
+            $("table").tableExport();
+        </script>
+   </body>
+</html>
